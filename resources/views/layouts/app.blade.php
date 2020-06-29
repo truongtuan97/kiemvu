@@ -101,8 +101,8 @@
                     <button class="register-btn">Đăng Ký Tài Khoản</button>
                 </div>
             </div>
-        </div>
-        <div id="popup-register" class="popup-form-account">
+        </div>        
+        <div id="popup-register" class="popup-form-account">        
             <div class="form-group mt-5 text-center">
                 <img src="assets/images/title-dangky.png">
             </div>

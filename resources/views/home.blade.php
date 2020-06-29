@@ -3,7 +3,11 @@
 @section('content')
 <div class="col-left">
     <div class="widget-box">
+        @guest
         <a href="javascript:;" class="btn-play">
+        @else     
+        <a href="javascript:;" class="">
+        @endguest
             <img src="assets/images/btn-play.gif">
         </a>
         <div class="group-flex d-flex">
@@ -43,7 +47,48 @@
         <div class="server-list">
             <h4>Danh Sách máy chủ</h4>
             <ul class="list-sv d-flex flex-wrap justify-content-between">
-                <li class="new-sv">
+                @guest                
+                <li class="new-sv">                    
+                    <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                </li>
+                @else     
+                <li class="new-sv">                    
                     <a href="#">KIẾM VŨ 1</a>
                 </li>
                 <li>
@@ -82,6 +127,8 @@
                 <li>
                     <a href="#">KIẾM VŨ 1</a>
                 </li>
+                @endguest
+                
             </ul>
             <div class="pagenavi">
                 <ul class="d-flex justify-content-between align-items-center">

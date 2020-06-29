@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;  // Import Hash facade
 use Illuminate\Support\Facades\Validator;
 use App\User;
 
@@ -50,7 +52,7 @@ class LoginController extends Controller
     {                                
         return Validator::make($data, [
             'name' => ['required'],            
-            'password' => ['required'],
+            'password' => ['required']
         ]);
     }
 
@@ -60,15 +62,28 @@ class LoginController extends Controller
 
     public function login(Request $request){
         $validator = $this->validator($request->all());
-        if (!$validator->fails()) {
-            if (Auth::attempt([
-                'email' => $request->email,
-                'password' => $request->password])
-            ){
-                return redirect('/home');
+        $auth = false;
+        $credentials = $request->only('name', 'password');
+        try {
+            if (Auth::attempt($credentials)) {
+                $auth = true; // Success
             }
+    
+            if ($auth) {
+                $user = User::where('name', $request->name)->first();
+    
+                if ($user) {            
+                    Auth::login($user);
+                    return response()->json($user);
+                } else {
+                    return response()->json(['error'=>"Invalid name or password."]);
+                }
+            } else {
+                return response()->json(['error'=>"Invalid name or password."]);
+            }            
+        } catch (Exception $ex) {
+            return response()->json(['error'=>"Invalid name or password."]);
         }        
-        return redirect('/home')->with('error', 'Invalid Name address or Password');
     }
 
     public function logout(){}

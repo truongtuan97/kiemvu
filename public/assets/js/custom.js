@@ -122,6 +122,7 @@ jQuery(function($){
             dataType: 'json',
             success: function(data){
                 if($.isEmptyObject(data.error)){
+                    console.log(data);
                     window.location.href = '/';
                 }else{
                     console.log(data.error);
