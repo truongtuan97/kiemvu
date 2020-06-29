@@ -76,9 +76,9 @@ class RegisterController extends Controller
                 'phone' => $request['phone'],
                 'password' => Hash::make($request['password']),
             ]);
+            Auth::login($user);
             return response()->json($user);
-        }
-        
+        }        
         return redirect()->route('home');
     }
 

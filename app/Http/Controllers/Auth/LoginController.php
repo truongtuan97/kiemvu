@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -37,12 +40,35 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {                                
+        return Validator::make($data, [
+            'name' => ['required'],            
+            'password' => ['required'],
+        ]);
+    }
+
     public function showLoginForm(){
 
     }
 
-    public function login(){
-        
+    public function login(Request $request){
+        $validator = $this->validator($request->all());
+        if (!$validator->fails()) {
+            if (Auth::attempt([
+                'email' => $request->email,
+                'password' => $request->password])
+            ){
+                return redirect('/home');
+            }
+        }        
+        return redirect('/home')->with('error', 'Invalid Name address or Password');
     }
 
     public function logout(){}

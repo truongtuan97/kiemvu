@@ -15,13 +15,14 @@
             </a>
         </div>
         <div class="login-form d-flex">
-            <div class="lg-left">
-                <form action="">
-                    <div class="form-group">
-                        <input type="text" class="input-kv" placeholder="Tên đăng nhập">
+            <form method="POST" id="loginForm" style="display: inherit;">
+                @csrf
+                <div class="lg-left">                
+                    <div class="form-group">                        
+                        <input id="name" type="tẽt" class="input-kv" name="name" required placeholder="Tên đăng nhập">
                     </div>
-                    <div class="form-group">
-                        <input type="password" class="input-kv" placeholder="Mật khẩu">
+                    <div class="form-group">                        
+                        <input id="password" type="password" class="input-kv" name="password" required placeholder="Mật khẩu">
                     </div>
                     <div class="form-group d-flex justify-content-between align-items-center">
                         <span>Có thể đăng nhập bằng</span>
@@ -29,13 +30,15 @@
                             <a href="#"><img src="assets/images/login-fb.png"></a>
                             <a href="#"><img src="assets/images/login-gg.png"></a>
                         </div>
-                    </div>
-                </form>
-            </div>
-            <!--lg-left-->
-            <div class="lg-right">
-                <button><img class="btn-hover" src="assets/images/btn-dangnhap.png"></button>
-            </div>
+                    </div>                
+                </div>
+                <!--lg-left-->
+                <div class="lg-right">
+                    <button type="submit">
+                        <img class="btn-hover" src="assets/images/btn-dangnhap.png">
+                    </button>                
+                </div>
+            </form>
         </div>
         <div class="server-list">
             <h4>Danh Sách máy chủ</h4>

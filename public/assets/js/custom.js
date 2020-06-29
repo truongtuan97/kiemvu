@@ -78,8 +78,7 @@ jQuery(function($){
                 password_confirmation:$("#password-confirm").val()},
             dataType: 'json',
             success: function(data){
-                if($.isEmptyObject(data.error)){   
-                    console.log('redirect roi');                
+                if($.isEmptyObject(data.error)){                    
                     window.location.href = '/';
                 }else{
                     console.log(data.error);
@@ -109,4 +108,29 @@ jQuery(function($){
         var parent = $(id).parent();
         $(parent).removeClass('invalid-feedback');       
     }
+    $('#loginForm').submit(function(e){
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({ 
+            type: 'POST',
+            url: '/login',
+            data: {name: $("#name").val(), password:$("#password").val()},
+            dataType: 'json',
+            success: function(data){
+                if($.isEmptyObject(data.error)){
+                    window.location.href = '/';
+                }else{
+                    console.log(data.error);
+                    const $errors = data.error;                    
+                }
+            },
+            error: function(data){
+                console.log("Error: ", data);
+            }
+        });
+    });
 });
