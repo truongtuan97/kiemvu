@@ -23,10 +23,10 @@
                 @csrf
                 <div class="lg-left">                
                     <div class="form-group">                        
-                        <input id="name" type="tẽt" class="input-kv" name="name" required placeholder="Tên đăng nhập">
+                        <input id="login-name" type="text" class="input-kv" name="login-name" required placeholder="Tên đăng nhập">
                     </div>
                     <div class="form-group">                        
-                        <input id="password" type="password" class="input-kv" name="password" required placeholder="Mật khẩu">
+                        <input id="login-password" type="password" class="input-kv" name="login-password" required placeholder="Mật khẩu">
                     </div>
                     <div class="form-group d-flex justify-content-between align-items-center">
                         <span>Có thể đăng nhập bằng</span>
@@ -183,277 +183,320 @@
 </div>
 <!--col-left-->
 <div class="col-right">
-    <div class="Rslider">
-        <img src="assets/images/slider-1.png">
-    </div>
-    <!--Rslider-->
-    <div class="Rnextop">
-        <div class="Rnews">
-            <div class="news-tab-menu">
-                <ul id="news-tab" class="d-flex">
+    <div class="list-news-archive">
+        <h4 class="title-news"></h4>
+        <div class="server-list-kv">
+            <div class="news-server">
+                <div class="title-sv">Máy Chủ Mới</div>
+                <ul class="list-sv d-flex flex-wrap justify-content-between">
+                    <li class="new-sv">
+                        <a href="#">KIẾM VŨ 1</a>
+                    </li>
+                    <li class="new-sv">
+                        <a href="#">KIẾM VŨ 1</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="has-play">
+                <span>Máy chủ đã chơi</span>
+                <select name="" id="" class="form-control">
+                    <option value="">Kiếm vũ S1</option>
+                    <option value="">Kiếm vũ S1</option>
+                    <option value="">Kiếm vũ S1</option>
+                    <option value="">Kiếm vũ S1</option>
+                    <option value="">Kiếm vũ S1</option>
+                </select>
+                <button class="btn-play-now">Chơi Ngay</button>
+            </div>
+            <div class="server-hot">
+                <div class="title-sv">Máy Chủ Hot</div>
+                <ul id="server-tab" class="d-flex">
                     <li class="active">
-                        <a data-href="#news-box" href="javascript:void(0)">Tin Tức</a>
+                        <a data-href="#sv-1" href="javascript:void(0)">Cụm 1</a>
+                    </li>                
+                    <li>
+                        <a data-href="#sv-2" href="javascript:void(0)">Cụm 2</a>
+                    </li>	
+                    <li>
+                        <a data-href="#sv-3" href="javascript:void(0)">Cụm 3</a>
                     </li>
                     <li>
-                        <a data-href="#event-box" href="javascript:void(0)">Sự Kiện</a>
+                        <a data-href="#sv-4" href="javascript:void(0)">Cụm 4</a>
                     </li>
-                </ul>
-                <!--news-tab-->
-                <div class="more-list">
-                    <a href="#"><img src="assets/images/ic-more.png"></a>
-                </div>
-            </div>
-            <div class="tab-content" id="news-content">
-                <div class="tab-pane fade show active" id="news-box">
-                    <div class="feature-news d-flex">
-                        <div class="ft-thumb">
-                            <img src="assets/images/img-news.png">
-                        </div>
-                        <div class="ft-content">
-                            <h3><a href="">Sự Kiện Nạp Xu Hàng Ngày 12/5 - 18/5</a></h3>
-                            <p>Trong thời gian diễn ra sự kiện, người h...</p>
-                            <a href="" class="read-more">Xem Thêm</a>
-                        </div>
+                    <li>
+                        <a data-href="#sv-5" href="javascript:void(0)">Cụm 5</a>
+                    </li>		                            
+                </ul><!--news-tab-->
+                <div class="tab-content" id="server-content">
+                    <div class="tab-pane fade show active" id="sv-1">
+                        <ul class="sv-cum-list d-flex flex-wrap justify-content-between">
+                            @guest
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            @else
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            @endguest                            
+                        </ul>
                     </div>
-                    <ul>
-                        <li class="d-flex align-items-center">
-                            <label>Tin Tức</label>
-                            <div class="xlr-content d-flex justify-content-between">
-                                <h3><a href="#">Mỗi ngày chỉ có thể nhận được thưởng</a></h3>
-                                <span class="meta-date">11 - 05</span>
-                            </div>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <label>Tin Tức</label>
-                            <div class="xlr-content d-flex justify-content-between">
-                                <h3><a href="#">Mỗi ngày chỉ có thể nhận được thưởng</a></h3>
-                                <span class="meta-date">11 - 05</span>
-                            </div>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <label>Tin Tức</label>
-                            <div class="xlr-content d-flex justify-content-between">
-                                <h3><a href="#">Mỗi ngày chỉ có thể nhận được thưởng</a></h3>
-                                <span class="meta-date">11 - 05</span>
-                            </div>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <label>Tin Tức</label>
-                            <div class="xlr-content d-flex justify-content-between">
-                                <h3><a href="#">Mỗi ngày chỉ có thể nhận được thưởng</a></h3>
-                                <span class="meta-date">11 - 05</span>
-                            </div>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <label>Tin Tức</label>
-                            <div class="xlr-content d-flex justify-content-between">
-                                <h3><a href="#">Mỗi ngày chỉ có thể nhận được thưởng</a></h3>
-                                <span class="meta-date">11 - 05</span>
-                            </div>
-                        </li>
-                        <div class="news-more text-right">
-                            <a href="#" class="read-more">Xem thêm</a>
-                        </div>
-                    </ul>
-                </div>
-                <div class="tab-pane fade show" id="event-box">
-                    <div class="feature-news d-flex">
-                        <div class="ft-thumb">
-                            <img src="assets/images/img-news.png">
-                        </div>
-                        <div class="ft-content">
-                            <h3><a href="">Sự Kiện Nạp Xu Hàng Ngày 12/5 - 18/5</a></h3>
-                            <p>Trong thời gian diễn ra sự kiện, người h...</p>
-                            <a href="" class="read-more">Xem Thêm</a>
-                        </div>
+                    <div class="tab-pane fade show" id="sv-2">
+                        <ul class="sv-cum-list d-flex flex-wrap justify-content-between">                            
+                        @guest
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
+                            </li>
+                            @else
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            <li>
+                                <a href="#">KIẾM VŨ 1</a>
+                            </li>
+                            @endguest
+                        </ul>
                     </div>
-                    <ul>
-                        <li class="d-flex align-items-center">
-                            <label>Sự Kiện</label>
-                            <div class="xlr-content d-flex justify-content-between">
-                                <h3><a href="#">Mỗi ngày chỉ có thể nhận được thưởng</a></h3>
-                                <span class="meta-date">11 - 05</span>
-                            </div>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <label>Sự Kiện</label>
-                            <div class="xlr-content d-flex justify-content-between">
-                                <h3><a href="#">Mỗi ngày chỉ có thể nhận được thưởng</a></h3>
-                                <span class="meta-date">11 - 05</span>
-                            </div>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <label>Sự Kiện</label>
-                            <div class="xlr-content d-flex justify-content-between">
-                                <h3><a href="#">Mỗi ngày chỉ có thể nhận được thưởng</a></h3>
-                                <span class="meta-date">11 - 05</span>
-                            </div>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <label>Sự Kiện</label>
-                            <div class="xlr-content d-flex justify-content-between">
-                                <h3><a href="#">Mỗi ngày chỉ có thể nhận được thưởng</a></h3>
-                                <span class="meta-date">11 - 05</span>
-                            </div>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <label>Sự Kiện</label>
-                            <div class="xlr-content d-flex justify-content-between">
-                                <h3><a href="#">Mỗi ngày chỉ có thể nhận được thưởng</a></h3>
-                                <span class="meta-date">11 - 05</span>
-                            </div>
-                        </li>
-                        <div class="news-more text-right">
-                            <a href="#" class="read-more">Xem thêm</a>
-                        </div>
-                    </ul>
                 </div>
             </div>
-            <!--news-content-->
-        </div>
-        <!--Rnews-->
-        <div class="R-topuser">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Nhân vật</th>
-                        <th scope="col">Lực chiến</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row" class="ctop1">1.HTiGon-S613</th>
-                        <td class="ctop1">56.211.866</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="ctop2">2.HTiGon-S613</th>
-                        <td class="ctop2">56.211.866</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="ctop3">3.HTiGon-S613</th>
-                        <td class="ctop3">56.211.866</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4.HTiGon-S613</th>
-                        <td>56.211.866</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5.HTiGon-S613</th>
-                        <td>56.211.866</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">6.HTiGon-S613</th>
-                        <td>56.211.866</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">7.HTiGon-S613</th>
-                        <td>56.211.866</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">8.HTiGon-S613</th>
-                        <td>56.211.866</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">9.HTiGon-S613</th>
-                        <td>56.211.866</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">10.HTiGon-S613</th>
-                        <td>56.211.866</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <!--R-topuser-->
-    </div>
-    <!--Rnextop-->
-    <div class="clear"></div>
-    <div class="R-character">
-        <ul id="char-tab" class="d-flex justify-content-between">
-            <li class="active"><a class="Ctab-1" data-href="#character-1" href="javascript:void(0)"
-                    title="Chiến Kỵ">Chiến Kỵ</a></li>
-            <li><a class="Ctab-2" data-href="#character-2" href="javascript:void(0)" title="Thần Binh">Thần
-                    Binh</a></li>
-            <li><a class="Ctab-3" data-href="#character-3" href="javascript:void(0)" title="Tiên Dực">Tiên
-                    Dực</a></li>
-            <li><a class="Ctab-4" data-href="#character-4" href="javascript:void(0)" title="Pháp Khí">Pháp
-                    Khí</a></li>
-            <li><a class="Ctab-5" data-href="#character-5" href="javascript:void(0)" title="Linh Vũ">Linh
-                    Vũ</a></li>
-            <li><a class="Ctab-6" data-href="#character-6" href="javascript:void(0)" title="La Ma">La Ma</a>
-            </li>
-            <li><a class="Ctab-7" data-href="#character-7" href="javascript:void(0)" title="Kiếm Vũ">Kiếm
-                    Vũ</a></li>
-            <li><a class="Ctab-8" data-href="#character-8" href="javascript:void(0)" title="Linh Sủng">Linh
-                    Sủng</a></li>
-        </ul>
-        <div class="tab-content" id="character-content">
-            <div class="tab-pane fade show active" id="character-1">
-                <ul class="owl-carousel owl-theme" data-items="3" data-nav="false" data-dots="false"
-                    data-autoplay="false" data-speed="1000" data-autotime="6000">
-                    <li>
-                        <img src="assets/images/tinh-nang/chien-ky/9.gif">
-                        <h4>Ma - Đinh Hoàng</h4>
-                        <p>Bậc 9</p>
-                    </li>
-                    <li>
-                        <img src="assets/images/tinh-nang/chien-ky/8.gif">
-                        <h4>Hồng Diệm Long</h4>
-                        <p>Bậc 8</p>
-                    </li>
-                    <li>
-                        <img src="assets/images/tinh-nang/chien-ky/7.gif">
-                        <h4>Tử Yên Loan</h4>
-                        <p>Bậc 7</p>
-                    </li>
-                    <li>
-                        <img src="assets/images/tinh-nang/chien-ky/9.gif">
-                        <h4>Xích Diệm Lân</h4>
-                        <p>Bậc 6</p>
-                    </li>
-                    <li>
-                        <img src="assets/images/tinh-nang/chien-ky/8.gif">
-                        <h4>Thanh Huyền Quy</h4>
-                        <p>Bậc 5</p>
-                    </li>
-                    <li>
-                        <img src="assets/images/tinh-nang/chien-ky/7.gif">
-                        <h4>Ma - Đinh Hoàng</h4>
-                        <p>Bậc 9</p>
-                    </li>
-                    <li>
-                        <img src="assets/images/tinh-nang/chien-ky/9.gif">
-                        <h4>Ma - Đinh Hoàng</h4>
-                        <p>Bậc 9</p>
-                    </li>
-                    <li>
-                        <img src="assets/images/tinh-nang/chien-ky/9.gif">
-                        <h4>Ma - Đinh Hoàng</h4>
-                        <p>Bậc 9</p>
-                    </li>
-                    <li>
-                        <img src="assets/images/tinh-nang/chien-ky/9.gif">
-                        <h4>Ma - Đinh Hoàng</h4>
-                        <p>Bậc 9</p>
-                    </li>
-                    <li>
-                        <img src="assets/images/tinh-nang/chien-ky/9.gif">
-                        <h4>Ma - Đinh Hoàng</h4>
-                        <p>Bậc 9</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="clear"></div>
-    <div class="R-bottom-slider">
-        <ul class="owl-carousel owl-theme" data-items="2" data-nav="true" data-margin="15" data-dots="false"
-            data-autoplay="false" data-speed="1000" data-autotime="6000">
-            <li><a href="#"><img src="assets/images/slider-bt-1.png"></a></li>
-            <li><a href="#"><img src="assets/images/slider-bt-2.png"></a></li>
-            <li><a href="#"><img src="assets/images/slider-bt-1.png"></a></li>
-            <li><a href="#"><img src="assets/images/slider-bt-2.png"></a></li>
-        </ul>
+        </div><!--server-list-kv-->	
     </div>
 </div>
 @endsection

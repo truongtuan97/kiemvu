@@ -118,7 +118,7 @@ jQuery(function($){
         $.ajax({ 
             type: 'POST',
             url: '/login',
-            data: {name: $("#name").val(), password:$("#password").val()},
+            data: {name: $("#login-name").val(), password:$("#login-password").val()},
             dataType: 'json',
             success: function(data){
                 if($.isEmptyObject(data.error)){
