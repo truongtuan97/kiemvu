@@ -17,7 +17,9 @@
             <a href="#" class="btn-hover">
                 <img src="assets/images/btn-napthe.png">
             </a>
-        </div>
+        </div>        
+        
+        @guest
         <div class="login-form d-flex">
             <form method="POST" id="loginForm" style="display: inherit;">
                 @csrf
@@ -44,6 +46,33 @@
                 </div>
             </form>
         </div>
+        @else
+        <!--login-ready-->
+        <div class="login-ready">
+            <div class="d-flex justify-content-between">
+                <div class="rleft">
+                    <div class="avt">
+                        <img src="assets/images/avatar.png">
+                    </div>
+                    <div class="rinfo">
+                        <span>Xin chào:</span>
+                        <p>{{ Auth::user()->name }}</p>
+                    </div>
+                </div>
+                <div class="right">
+                    <a href="#"><img src="assets/images/btn-select-server.png"></a>
+                </div>
+            </div>
+            <div class="menu-account">
+                <a href="#">Thông Tin Tài Khoản</a> | <a href="{{ route('logout') }}">Thoát</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </div>
+        </div>
+        <!--login-ready-->
+        @endguest
+        
         <div class="server-list">
             <h4>Danh Sách máy chủ</h4>
             <ul class="list-sv d-flex flex-wrap justify-content-between">

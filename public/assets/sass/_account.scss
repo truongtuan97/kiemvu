@@ -302,3 +302,41 @@
 		}
 	}
 }
+.login-ready{
+	background: #fff;
+    border: 1px solid #dbdbdb;
+    padding: 18px 8px;
+    margin-top: 10px;
+    .rleft{
+    	display: flex;
+    	border: 1px solid #dbdbdb;
+    	padding: 8px;
+    	flex: none;
+    	width: calc(100% - 87px);
+    	.avt{
+    		margin-right: 8px;
+    		img{
+    			max-width: 44px;
+    		}
+    	}
+    	.rinfo{
+    		span{
+    			color: #005587;
+    			font-size: 12px;
+    		}
+    		p{
+    			font-size: 17px;
+    			color: #005587;
+    			margin: 5px 0 0;
+    		}
+    	}
+    }
+    .menu-account{
+    	color: #005587;
+    	margin-top: 15px;
+    	a{
+    		color: #005587;
+    		font-size: 14px;
+    	}
+    }
+}
