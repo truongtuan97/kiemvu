@@ -22,7 +22,7 @@
 				<div class="playing-sv d-flex align-items-center justify-content-center">
 					<div>
 						<p>server đang chơi</p>
-						<h5>[ S10 ] - Kiếm Vũ</h5>
+						<h5>[ S{{ $serverId }} ] - Kiếm Vũ</h5>
 					</div>
 				</div>
 				<div class="select-sv">

@@ -217,312 +217,106 @@
         <div class="server-list-kv">
             <div class="news-server">
                 <div class="title-sv">Máy Chủ Mới</div>
-                <ul class="list-sv d-flex flex-wrap justify-content-between">
+                <ul class="list-sv d-flex flex-wrap justify-content-between">                
+                    @guest
                     <li class="new-sv">
-                        <a href="#">KIẾM VŨ 1</a>
+                        <a href="javascript:;" class="btn-play">{{ $lastElement["name"] }}</a>
                     </li>
                     <li class="new-sv">
-                        <a href="#">KIẾM VŨ 1</a>
+                        <a href="javascript:;" class="btn-play">{{ $beforeLastElement["name"] }}</a>
                     </li>
+                    @else
+                    <li class="new-sv">
+                        <a href="play-game/{{ $lastElement['server_id'] }}">{{ $lastElement["name"] }}</a>
+                    </li>
+                    <li class="new-sv">
+                        <a href="play-game/{{ $beforeLastElement['server_id'] }}">{{ $beforeLastElement["name"] }}</a>
+                    </li>
+                    @endguest                    
                 </ul>
             </div>
             <div class="has-play">
                 <span>Máy chủ đã chơi</span>
-                <select name="" id="" class="form-control">
+                <select name="" id="playedServerList" class="form-control">
+                    <!-- <option value="">Kiếm vũ S1</option>
                     <option value="">Kiếm vũ S1</option>
                     <option value="">Kiếm vũ S1</option>
                     <option value="">Kiếm vũ S1</option>
-                    <option value="">Kiếm vũ S1</option>
-                    <option value="">Kiếm vũ S1</option>
+                    <option value="">Kiếm vũ S1</option> -->
+                    @foreach ($playedServer as $id)
+                        <option value="{{ $id }}">Kiếm vũ {{ $id }}</option>
+                    @endforeach
                 </select>
+                @guest
                 <button class="btn-play-now">Chơi Ngay</button>
+                @else
+                <button class="btn-play-now" onclick="gotoPlayGameWithSelectedServer()">Chơi Ngay</button>
+                @endguest
             </div>
             <div class="server-hot">
                 <div class="title-sv">Máy Chủ Hot</div>
                 <ul id="server-tab" class="d-flex">
-                    <li class="active">
-                        <a data-href="#sv-1" href="javascript:void(0)">Cụm 1</a>
-                    </li>                
-                    <li>
-                        <a data-href="#sv-2" href="javascript:void(0)">Cụm 2</a>
-                    </li>	
-                    <li>
-                        <a data-href="#sv-3" href="javascript:void(0)">Cụm 3</a>
-                    </li>
-                    <li>
-                        <a data-href="#sv-4" href="javascript:void(0)">Cụm 4</a>
-                    </li>
-                    <li>
-                        <a data-href="#sv-5" href="javascript:void(0)">Cụm 5</a>
-                    </li>		                            
+                    @php
+                        $loopCount = intdiv(count($arrayFiltered), 21);
+                        $numOfElement = count($arrayFiltered);
+                        if (count($arrayFiltered) % 21 == 1)
+                            $loopCount += 1;
+                    @endphp
+                    @for ($i=1; $i <= $loopCount; $i++)
+                        @if ($i == 1)
+                            <li class="active">
+                                <a data-href="#sv-{{ $i }}" href="javascript:void(0)">Cụm {{ $i }}</a>
+                            </li>
+                        @else
+                            <li>
+                                <a data-href="#sv-{{ $i }}" href="javascript:void(0)">Cụm {{ $i }}</a>
+                            </li>
+                        @endif
+                    @endfor
                 </ul><!--news-tab-->
                 <div class="tab-content" id="server-content">
-                    <div class="tab-pane fade show active" id="sv-1">
-                        <ul class="sv-cum-list d-flex flex-wrap justify-content-between">
-                            @guest
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            @else
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            @endguest                            
-                        </ul>
-                    </div>
-                    <div class="tab-pane fade show" id="sv-2">
-                        <ul class="sv-cum-list d-flex flex-wrap justify-content-between">                            
-                        @guest
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;" class="btn-play">KIẾM VŨ 1</a>
-                            </li>
-                            @else
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            <li>
-                                <a href="#">KIẾM VŨ 1</a>
-                            </li>
-                            @endguest
-                        </ul>
-                    </div>
+                    @for ($i=1; $i <= $loopCount; $i++)
+                        @if ($i == 1)
+                        <div class="tab-pane fade show active" id="sv-{{ $i }}">
+                            <ul class="sv-cum-list d-flex flex-wrap justify-content-between">
+                                @for ($j=0; $j < 21; $j++)
+                                    @guest
+                                    <li>
+                                        <a href="javascript:;" class="btn-play">{{ $arrayFiltered[$numOfElement - $j]['name'] }}</a>
+                                    </li>
+                                    @else
+                                    <li>                                
+                                        <a href="play-game/{{ $arrayFiltered[$numOfElement - $j]['server_id'] }}">
+                                            {{ $arrayFiltered[$numOfElement - $j]['name'] }}
+                                        </a>
+                                    </li>
+                                    @endguest
+                                @endfor
+                            </ul>
+                        </div>
+                        @else
+                        <div class="tab-pane fade show" id="sv-{{ $i }}">
+                            <ul class="sv-cum-list d-flex flex-wrap justify-content-between">
+                                @for ($j=0; $j < 21; $j++)
+                                    @guest
+                                    <li>
+                                        <a href="javascript:;" class="btn-play">{{ $arrayFiltered[$numOfElement - $j]['name'] }}</a>
+                                    </li>
+                                    @else
+                                    <li>                                
+                                        <a href="play-game/{{ $arrayFiltered[$numOfElement - $j]['server_id'] }}">
+                                            {{ $arrayFiltered[$numOfElement - $j]['name'] }}
+                                        </a>
+                                    </li>
+                                    @endguest
+                                @endfor
+                            </ul>
+                        </div>
+                        @endif
+                        @php
+                            $numOfElement -= 21;
+                        @endphp
+                    @endfor                                        
                 </div>
             </div>
         </div><!--server-list-kv-->	
