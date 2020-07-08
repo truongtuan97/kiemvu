@@ -118,43 +118,43 @@
                 </li>
                 @else     
                 <li class="new-sv">                    
-                    <a href="#">KIẾM VŨ 1</a>
+                    <a href="play-game/1">KIẾM VŨ 1</a>
                 </li>
                 <li>
-                    <a href="#">KIẾM VŨ 1</a>
+                    <a href="play-game/1">KIẾM VŨ 1</a>
                 </li>
                 <li>
-                    <a href="#">KIẾM VŨ 1</a>
+                    <a href="play-game/1">KIẾM VŨ 1</a>
                 </li>
                 <li>
-                    <a href="#">KIẾM VŨ 1</a>
+                    <a href="play-game/1">KIẾM VŨ 1</a>
                 </li>
                 <li>
-                    <a href="#">KIẾM VŨ 1</a>
+                    <a href="play-game/1">KIẾM VŨ 1</a>
                 </li>
                 <li>
-                    <a href="#">KIẾM VŨ 1</a>
+                    <a href="play-game/1">KIẾM VŨ 1</a>
                 </li>
                 <li>
-                    <a href="#">KIẾM VŨ 1</a>
+                    <a href="play-game/1">KIẾM VŨ 1</a>
                 </li>
                 <li>
-                    <a href="#">KIẾM VŨ 1</a>
+                    <a href="play-game/1">KIẾM VŨ 1</a>
                 </li>
                 <li>
-                    <a href="#">KIẾM VŨ 1</a>
+                    <a href="play-game/1">KIẾM VŨ 1</a>
                 </li>
                 <li>
-                    <a href="#">KIẾM VŨ 1</a>
+                    <a href="play-game/1">KIẾM VŨ 1</a>
                 </li>
                 <li>
-                    <a href="#">KIẾM VŨ 1</a>
+                    <a href="play-game/1">KIẾM VŨ 1</a>
                 </li>
                 <li>
-                    <a href="#">KIẾM VŨ 1</a>
+                    <a href="play-game/1">KIẾM VŨ 1</a>
                 </li>
                 <li>
-                    <a href="#">KIẾM VŨ 1</a>
+                    <a href="play-game/1">KIẾM VŨ 1</a>
                 </li>
                 @endguest
                 
@@ -316,7 +316,7 @@
                         @php
                             $numOfElement -= 21;
                         @endphp
-                    @endfor                                        
+                    @endfor
                 </div>
             </div>
         </div><!--server-list-kv-->	
