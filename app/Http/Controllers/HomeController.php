@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -29,7 +31,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        include(app_path() . '\serverlist.php');        
+        //include(app_path() . '\serverlist.php');
+        include(__DIR__.'/../../serverlist.php');
+
         $arrayFiltered = array_filter($game_server, function($obj) {
             $openDate = new \DateTime($obj['open']);
             $now = new \DateTime();
@@ -42,8 +46,8 @@ class HomeController extends Controller
         $playedServer = array();
         $user = \Auth::user();
         if (!\is_null($user)) {
-            $redis = \Redis::connection();
-            $playedServer = \json_decode($redis->get($user->name));            
+            $redis = \Redis::connection();            
+            $playedServer = \json_decode($redis->get($user->name));
         }
         return view('home', compact(['lastElement', 'beforeLastElement', 'arrayFiltered', 'playedServer']));
     }    

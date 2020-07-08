@@ -243,9 +243,11 @@
                     <option value="">Kiếm vũ S1</option>
                     <option value="">Kiếm vũ S1</option>
                     <option value="">Kiếm vũ S1</option> -->
-                    @foreach ($playedServer as $id)
-                        <option value="{{ $id }}">Kiếm vũ {{ $id }}</option>
-                    @endforeach
+                    @if (!is_empty($playedServer)) 
+                        @foreach ($playedServer as $id)
+                            <option value="{{ $id }}">Kiếm vũ {{ $id }}</option>
+                        @endforeach
+                    @endif
                 </select>
                 @guest
                 <button class="btn-play-now">Chơi Ngay</button>
