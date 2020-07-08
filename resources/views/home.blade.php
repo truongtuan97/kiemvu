@@ -243,7 +243,7 @@
                     <option value="">Kiếm vũ S1</option>
                     <option value="">Kiếm vũ S1</option>
                     <option value="">Kiếm vũ S1</option> -->
-                    @if (!is_empty($playedServer)) 
+                    @if (!empty($playedServer))
                         @foreach ($playedServer as $id)
                             <option value="{{ $id }}">Kiếm vũ {{ $id }}</option>
                         @endforeach
