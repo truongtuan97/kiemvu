@@ -37,7 +37,7 @@ class HomeController extends Controller
         $arrayFiltered = array_filter($game_server, function($obj) {
             $openDate = new \DateTime($obj['open']);
             $now = new \DateTime();
-            return $openDate > $now ? $obj : null;
+            return $openDate < $now ? $obj : null;
         });
         
         $lastElement = null;
