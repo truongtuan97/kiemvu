@@ -25,10 +25,7 @@ class PlayGameController extends Controller
             $serverId = $request->id;
 
             include(__DIR__.'/../../serverlist.php');
-            if (!\in_array($user->name, $allow_users_test)){
-                return redirect()->route('home');
-            }
-            if (is_null($game_server[$serverId])) {
+            if (!\in_array($user->name, $allow_users_test) && is_null($game_server[$serverId])){
                 return redirect()->route('home');
             }
 
