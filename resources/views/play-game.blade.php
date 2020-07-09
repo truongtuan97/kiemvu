@@ -53,7 +53,7 @@
 				</div>				
 			</div><!--nav-left-->
 			
-			<div class="nav-right" style="width: 100%; height: 100%; position: fixed; top: 0; left: 265px; z-index: 1;">
+			<div class="position265" style="width: 100%; height: 100%; position: fixed; top: 0; left: 265px; z-index: 1;" id="mainIframe">
 				<iframe name="main" id="main" src="{{ $loginLink }}" frameborder="0" width="100%" height="100%" align="right">
 					<FONT FACE=ARIAL SIZE=3 COLOR="RED">Your Browser doesn't Support Required Component.</FONT>
 				</iframe>
@@ -80,9 +80,19 @@
 		        el.setAttribute("class", "hide");
 		    }
 		}
-
+		
 		$('.side-button').click(function(event) {
-			toggle('box');
+			var el = $('#mainIframe');
+			var classValue = $(el).attr('class');
+			if (classValue == 'position265') {
+				$(el).attr('class', 'position0');
+				$(el).css('left', '0');				
+			} else {
+				$(el).attr('class', 'position265');
+				$(el).css('left', '265px');
+			}
+				
+			toggle('box');			
 		});
 	});
 </script>
