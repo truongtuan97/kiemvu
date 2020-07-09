@@ -37,7 +37,21 @@ class PlayGameController extends Controller
             }
             
             $serverId = $request->id;
-            return view('play-game', compact("serverId"));
+
+            //tich hop login
+            $domain = env('KIEMVU_DOMAIN');
+            $loginKey = env('KIEMVU_LOGIN_KEY');
+            $server=$serverId;
+            $user=$user->name;
+            $fcm = 1;
+            $time = time();
+            $backurl = "http://kiemvupk.com";
+            $client = 0;
+            $pfpf = "kiemvupk";
+            $sign = md5($server.$user.$fcm.$time.$backurl.$client.$pfpf.$loginKey);
+            $loginLink = "http://".$domain."/index.php?s=/VngLogin&game=JYJH&pf=vng&server={".$server."}&user={".$user."}&fcm={".$fcm."}&time={".$time."}&backurl={".$backurl."}&client={".$client."}&pfpf={".$pfpf."}&sign={".$sign."}"."\n";
+            //end
+            return view('play-game', compact("serverId", "loginLink"));
         }
     }
 }

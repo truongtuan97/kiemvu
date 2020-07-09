@@ -52,7 +52,12 @@
 					<a href="#"><img src="{{ asset('assets/play-game/assets/images/ic-qc.png') }}"></a>
 				</div>				
 			</div><!--nav-left-->
-			<a href="javascript:;" class="side-button"><img src="{{ asset('assets/play-game/assets/images/ic-drop.png') }}"></a>
+			<!-- <a href="javascript:;" class="side-button"><img src="{{ asset('assets/play-game/assets/images/ic-drop.png') }}"></a> -->
+			<div class="nav-right">
+				<iframe name="main" id="main" src="{{ $loginLink }}" frameborder="0" width="100%" height="100%" align="right">
+					<FONT FACE=ARIAL SIZE=3 COLOR="RED">Your Browser doesn't Support Required Component.</FONT>
+				</iframe>
+			</div>
 		</div>
 
 		<div class="show-kichhoat">
