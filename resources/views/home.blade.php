@@ -161,9 +161,9 @@
                     @php
                         $loopCount = intdiv(count($arrayFiltered), 21);
                         $numOfElement = count($arrayFiltered);
-                        if (count($arrayFiltered) % 21 == 1)
+                        if (count($arrayFiltered) % 21 != 0)
                             $loopCount += 1;
-                    @endphp
+                    @endphp                    
                     @for ($i=1; $i <= $loopCount; $i++)
                         @if ($i == 1)
                             <li class="active">
@@ -196,7 +196,7 @@
                                         @endguest
                                     @endfor
                                 @else
-                                    @for ($j=$numOfElement; $j > 0; $j--)
+                                    @for ($j=$numOfElement -1; $j >= 0; $j--)
                                         @guest
                                             <li>
                                                 <a href="javascript:;" class="btn-play">{{ $arrayFiltered[$numOfElement - $j]['name'] }}</a>
@@ -230,7 +230,8 @@
                                         @endguest
                                     @endfor
                                 @else
-                                    @for ($j=$numOfElement; $j > 0; $j--)
+                                    @for ($j=$numOfElement - 1; $j >= 0; $j--)
+                                        @if (!is_null($arrayFiltered[$numOfElement - $j]))
                                         @guest
                                             <li>
                                                 <a href="javascript:;" class="btn-play">{{ $arrayFiltered[$numOfElement - $j]['name'] }}</a>
@@ -242,6 +243,7 @@
                                                 </a>
                                             </li>
                                         @endguest
+                                        @endif
                                     @endfor
                                 @endif
                             </ul>
