@@ -25,9 +25,11 @@ class PlayGameController extends Controller
             $serverId = $request->id;
 
             include(__DIR__.'/../../serverlist.php');
-            if (!\in_array($user->name, $allow_users_test) && !in_array($serverId, $game_server)){
+            
+            if (!in_array($user->name, $allow_users_test) && !$this->isExistServerId($game_server, $serverId) ){
                 return redirect()->route('home');
             }
+           
 
             $redis = \Redis::connection();
 
@@ -58,5 +60,13 @@ class PlayGameController extends Controller
             //end
             return view('play-game', compact("serverId", "loginLink"));
         }
+    }
+
+    private function isExistServerId($arrayDataSource, $compareValue) {        
+        foreach($arrayDataSource as $obj) {
+            if ($obj['server_id'] == $compareValue)
+                return true;
+        }
+        return false;
     }
 }
