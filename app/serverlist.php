@@ -2,9 +2,8 @@
 
 $allow_users_test 	= array
 (
-"ngtr90","donaltrung1990",
+"ngtr90","donaltrung1990","tuan29"
 );
-
 
 $game_server = array (
 '1' => array("id" => "1", "server_id" => "1", "name" => "Kiếm Vũ 1", "active" => "1", "merge" => "0", "open" => "2050-12-31 10:00:00", "ip" => "10.0.0.0", "database" => "kiemvu_1"),

@@ -22,6 +22,16 @@ class PlayGameController extends Controller
             return redirect()->route('home');
         }            
         else {
+            $serverId = $request->id;
+
+            include(__DIR__.'/../../serverlist.php');
+            if (!\in_array($user->name, $allow_users_test)){
+                return redirect()->route('home');
+            }
+            if (is_null($game_server[$serverId])) {
+                return redirect()->route('home');
+            }
+
             $redis = \Redis::connection();
 
             $arrValue = \json_decode($redis->get($user->name));
@@ -34,9 +44,7 @@ class PlayGameController extends Controller
                     $arrValue[] = $request->id;
                     $redis->set($user->name, json_encode($arrValue));
                 }
-            }
-            
-            $serverId = $request->id;
+            }                        
 
             //tich hop login
             $domain = env('KIEMVU_DOMAIN');

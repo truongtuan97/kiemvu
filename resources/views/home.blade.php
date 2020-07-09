@@ -108,21 +108,29 @@
         <div class="server-list-kv">
             <div class="news-server">
                 <div class="title-sv">Máy Chủ Mới</div>
-                <ul class="list-sv d-flex flex-wrap justify-content-between">                
+                <ul class="list-sv d-flex flex-wrap justify-content-between">                                    
                     @guest
+                    @if (!is_null($lastElement))
                     <li class="new-sv">
                         <a href="javascript:;" class="btn-play">{{ $lastElement["name"] }}</a>
                     </li>
+                    @endif
+                    @if (!is_null($beforeLastElement))
                     <li class="new-sv">
                         <a href="javascript:;" class="btn-play">{{ $beforeLastElement["name"] }}</a>
                     </li>
+                    @endif
                     @else
+                    @if (!is_null($lastElement))
                     <li class="new-sv">
                         <a href="play-game/{{ $lastElement['server_id'] }}">{{ $lastElement["name"] }}</a>
                     </li>
+                    @endif
+                    @if (!is_null($beforeLastElement))
                     <li class="new-sv">
                         <a href="play-game/{{ $beforeLastElement['server_id'] }}">{{ $beforeLastElement["name"] }}</a>
                     </li>
+                    @endif
                     @endguest                    
                 </ul>
             </div>
@@ -173,37 +181,69 @@
                         @if ($i == 1)
                         <div class="tab-pane fade show active" id="sv-{{ $i }}">
                             <ul class="sv-cum-list d-flex flex-wrap justify-content-between">
-                                @for ($j=20; $j >= 0; $j--)
-                                    @guest
-                                    <li>
-                                        <a href="javascript:;" class="btn-play">{{ $arrayFiltered[$numOfElement - $j]['name'] }}</a>
-                                    </li>
-                                    @else
-                                    <li>                                
-                                        <a href="play-game/{{ $arrayFiltered[$numOfElement - $j]['server_id'] }}">
-                                            {{ $arrayFiltered[$numOfElement - $j]['name'] }}
-                                        </a>
-                                    </li>
-                                    @endguest
-                                @endfor
+                                @if ($numOfElement >= 21)
+                                    @for ($j=20; $j >= 0; $j--)
+                                        @guest
+                                        <li>
+                                            <a href="javascript:;" class="btn-play">{{ $arrayFiltered[$numOfElement - $j]['name'] }}</a>
+                                        </li>
+                                        @else
+                                        <li>                                
+                                            <a href="play-game/{{ $arrayFiltered[$numOfElement - $j]['server_id'] }}">
+                                                {{ $arrayFiltered[$numOfElement - $j]['name'] }}
+                                            </a>
+                                        </li>
+                                        @endguest
+                                    @endfor
+                                @else
+                                    @for ($j=$numOfElement; $j > 0; $j--)
+                                        @guest
+                                            <li>
+                                                <a href="javascript:;" class="btn-play">{{ $arrayFiltered[$numOfElement - $j]['name'] }}</a>
+                                            </li>
+                                            @else
+                                            <li>                                
+                                                <a href="play-game/{{ $arrayFiltered[$numOfElement - $j]['server_id'] }}">
+                                                    {{ $arrayFiltered[$numOfElement - $j]['name'] }}
+                                                </a>
+                                            </li>
+                                        @endguest
+                                    @endfor
+                                @endif
                             </ul>
                         </div>
                         @else
                         <div class="tab-pane fade show" id="sv-{{ $i }}">
                             <ul class="sv-cum-list d-flex flex-wrap justify-content-between">
-                                @for ($j=20; $j >= 0; $j--)
-                                    @guest
-                                    <li>
-                                        <a href="javascript:;" class="btn-play">{{ $arrayFiltered[$numOfElement - $j]['name'] }}</a>
-                                    </li>
-                                    @else
-                                    <li>                                
-                                        <a href="play-game/{{ $arrayFiltered[$numOfElement - $j]['server_id'] }}">
-                                            {{ $arrayFiltered[$numOfElement - $j]['name'] }}
-                                        </a>
-                                    </li>
-                                    @endguest
-                                @endfor
+                                @if ($numOfElement >= 21)
+                                    @for ($j=20; $j >= 0; $j--)
+                                        @guest
+                                        <li>
+                                            <a href="javascript:;" class="btn-play">{{ $arrayFiltered[$numOfElement - $j]['name'] }}</a>
+                                        </li>
+                                        @else
+                                        <li>                                
+                                            <a href="play-game/{{ $arrayFiltered[$numOfElement - $j]['server_id'] }}">
+                                                {{ $arrayFiltered[$numOfElement - $j]['name'] }}
+                                            </a>
+                                        </li>
+                                        @endguest
+                                    @endfor
+                                @else
+                                    @for ($j=$numOfElement; $j > 0; $j--)
+                                        @guest
+                                            <li>
+                                                <a href="javascript:;" class="btn-play">{{ $arrayFiltered[$numOfElement - $j]['name'] }}</a>
+                                            </li>
+                                            @else
+                                            <li>                                
+                                                <a href="play-game/{{ $arrayFiltered[$numOfElement - $j]['server_id'] }}">
+                                                    {{ $arrayFiltered[$numOfElement - $j]['name'] }}
+                                                </a>
+                                            </li>
+                                        @endguest
+                                    @endfor
+                                @endif
                             </ul>
                         </div>
                         @endif
