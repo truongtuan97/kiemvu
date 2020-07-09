@@ -53,7 +53,7 @@
 				</div>				
 			</div><!--nav-left-->
 			<!-- <a href="javascript:;" class="side-button"><img src="{{ asset('assets/play-game/assets/images/ic-drop.png') }}"></a> -->
-			<div class="nav-right">
+			<div class="nav-right" style="width: 100%; height: 100%; position: fixed; top: 0; left: 265px; z-index: 1;">
 				<iframe name="main" id="main" src="{{ $loginLink }}" frameborder="0" width="100%" height="100%" align="right">
 					<FONT FACE=ARIAL SIZE=3 COLOR="RED">Your Browser doesn't Support Required Component.</FONT>
 				</iframe>

@@ -49,7 +49,7 @@ class PlayGameController extends Controller
             $client = 0;
             $pfpf = "kiemvupk";
             $sign = md5($server.$user.$fcm.$time.$backurl.$client.$pfpf.$loginKey);
-            $loginLink = "http://".$domain."/index.php?s=/VngLogin&game=JYJH&pf=vng&server={".$server."}&user={".$user."}&fcm={".$fcm."}&time={".$time."}&backurl={".$backurl."}&client={".$client."}&pfpf={".$pfpf."}&sign={".$sign."}"."\n";
+            $loginLink = "http://".$domain."/index.php?s=/VngLogin&game=JYJH&pf=vng&server=".$server."&user=".$user."&fcm=".$fcm."&time=".$time."&backurl=".$backurl."&client=".$client."&pfpf=".$pfpf."&sign=".$sign;
             //end
             return view('play-game', compact("serverId", "loginLink"));
         }
