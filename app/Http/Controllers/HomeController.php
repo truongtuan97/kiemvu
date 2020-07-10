@@ -42,6 +42,10 @@ class HomeController extends Controller
         
         $lastElement = null;
         $beforeLastElement = null;
+        if (count($arrayFiltered) == 1) {
+            $lastElement = $arrayFiltered[count($arrayFiltered)];                
+            //$beforeLastElement = $arrayFiltered[count($arrayFiltered) - 1];
+        }
         if (count($arrayFiltered) >= 2) {
             $lastElement = $arrayFiltered[count($arrayFiltered)];                
             $beforeLastElement = $arrayFiltered[count($arrayFiltered) - 1];
