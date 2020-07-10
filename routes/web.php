@@ -34,3 +34,4 @@ Route::post('password/reset', 'Auth\ForgotPasswordController@reset')->name('pass
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('play-game/{id}', 'PlayGameController@playGame');
+Route::get('account-info/{id}', 'CustomerController@customerDetail');
