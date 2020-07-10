@@ -34,4 +34,6 @@ Route::post('password/reset', 'Auth\ForgotPasswordController@reset')->name('pass
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('play-game/{id}', 'PlayGameController@playGame');
-Route::get('account-info/{id}', 'CustomerController@customerDetail');
+Route::get('account-info/{id}', ['as' => 'accountInfo', 'uses' => 'CustomerController@detail']);
+Route::get('change-password/{id}', ['as' => 'changePassword', 'uses' => 'CustomerController@changePassword']);
+Route::patch('change-password/{id}', ['as' => 'changePassword', 'uses' => 'CustomerController@ExeChangePassword']);

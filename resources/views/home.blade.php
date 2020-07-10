@@ -8,14 +8,14 @@
         @else     
         <a href="javascript:;" class="">
         @endguest
-            <img src="assets/images/btn-play.gif">
+            <img src="{{ asset('assets/images/btn-play.gif') }}">
         </a>
         <div class="group-flex d-flex">
             <a href="#" class="btn-hover">
-                <img src="assets/images/btn-dangky.png">
+                <img src="{{ asset('assets/images/btn-dangky.png') }}">
             </a>
             <a href="#" class="btn-hover">
-                <img src="assets/images/btn-napthe.png">
+                <img src="{{ asset('assets/images/btn-napthe.png') }}">
             </a>
         </div>        
         
@@ -33,15 +33,15 @@
                     <div class="form-group d-flex justify-content-between align-items-center">
                         <span>Có thể đăng nhập bằng</span>
                         <div>
-                            <a href="#"><img src="assets/images/login-fb.png"></a>
-                            <a href="#"><img src="assets/images/login-gg.png"></a>
+                            <a href="#"><img src="{{ asset('assets/images/login-fb.png') }}"></a>
+                            <a href="#"><img src="{{ asset('assets/images/login-gg.png') }}"></a>
                         </div>
                     </div>                
                 </div>
                 <!--lg-left-->
                 <div class="lg-right">
                     <button type="submit">
-                        <img class="btn-hover" src="assets/images/btn-dangnhap.png">
+                        <img class="btn-hover" src="{{ asset('assets/images/btn-dangnhap.png') }}">
                     </button>                
                 </div>
             </form>
@@ -52,7 +52,7 @@
             <div class="d-flex justify-content-between">
                 <div class="rleft">
                     <div class="avt">
-                        <img src="assets/images/avatar.png">
+                        <img src="{{ asset('assets/images/avatar.png') }}">
                     </div>
                     <div class="rinfo">
                         <span>Xin chào:</span>
@@ -60,11 +60,11 @@
                     </div>
                 </div>
                 <div class="right">
-                    <a href="#"><img src="assets/images/btn-select-server.png"></a>
+                    <a href="#"><img src="{{ asset('assets/images/btn-select-server.png') }}"></a>
                 </div>
             </div>
             <div class="menu-account">
-                <a href="#">Thông Tin Tài Khoản</a> | <a href="{{ route('logout') }}">Thoát</a>
+                <a href="{{ route('accountInfo', Auth::user()->id) }}">Thông Tin Tài Khoản</a> | <a href="{{ route('logout') }}">Thoát</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
@@ -76,16 +76,16 @@
         <div class="box-tinhnang">
             <ul class="d-flex flex-wrap justify-content-between">
                 <li>
-                    <a href="#"><img src="assets/images/tn-giftcode.png"></a>
+                    <a href="#"><img src="{{ asset('assets/images/tn-giftcode.png') }}"></a>
                 </li>
                 <li>
-                    <a href="#"><img src="assets/images/tn-fanpage.png"></a>
+                    <a href="#"><img src="{{ asset('assets/images/tn-fanpage.png') }}"></a>
                 </li>
                 <li>
-                    <a href="#"><img src="assets/images/tn-dieukhoan.png"></a>
+                    <a href="#"><img src="{{ asset('assets/images/tn-dieukhoan.png') }}"></a>
                 </li>
                 <li>
-                    <a href="#"><img src="assets/images/tn-tinhnang.png"></a>
+                    <a href="#"><img src="{{ asset('assets/images/tn-tinhnang.png') }}"></a>
                 </li>
             </ul>
         </div>

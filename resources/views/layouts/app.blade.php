@@ -24,28 +24,28 @@
                 <div class="top_nav">
                     <ul>
                         <li>
-                            <a href="#">
-                                <img src="assets/images/ic-home.png"> Trang Chủ
+                            <a href="/">
+                                <img src="{{ asset('assets/images/ic-home.png') }}"> Trang Chủ
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <img src="assets/images/ic-news.png"> Tin Tức
+                                <img src="{{ asset('assets/images/ic-news.png') }}"> Tin Tức
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <img src="assets/images/ic-sukien.png"> Sự Kiện
+                                <img src="{{ asset('assets/images/ic-sukien.png') }}"> Sự Kiện
                             </a>
                         </li>
                         <li class="logo">
                             <a href="#">
-                                <img src="assets/images/logo.png">
+                                <img src="{{ asset('assets/images/logo.png') }}">
                             </a>
                         </li>
                         <li>
                             <a href="">
-                                <img src="assets/images/ic-camnang.png"> Cẩm Nang
+                                <img src="{{ asset('assets/images/ic-camnang.png') }}"> Cẩm Nang
                             </a>
                         </li>
                         <li>
@@ -55,7 +55,7 @@
                         </li>
                         <li>
                             <a href="#" target="_blank">
-                                <img src="assets/images/ic-hotro.png"> Group
+                                <img src="{{ asset('assets/images/ic-hotro.png') }}"> Group
                             </a>
                         </li>
                     </ul>
@@ -63,7 +63,7 @@
             </div>
             <div class="video">
                 <video width="100%" height="auto" playsinline="" autoplay="" muted="" loop="" __idm_id__="242826241">
-                    <source src="assets/images/home-intro.mp4" type="video/mp4">
+                    <source src="{{ asset('assets/images/home-intro.mp4') }}" type="video/mp4">
                 </video>
             </div>
         </header>
