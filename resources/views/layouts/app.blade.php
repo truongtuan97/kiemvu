@@ -159,7 +159,7 @@
                                         name="phone" value="{{ old('phone') }}" required placeholder="Nhập sđt">
 
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>TEST</strong>
+                                        <strong></strong>
                                     </span>
                                 </div>
                             </div>
