@@ -136,85 +136,78 @@
                     <li>
                         <a href="{{ route('changePassword', Auth::user()) }}">
                             <div class="irleft">
-                              <img src="{{ asset('assets/images/ic-lock-down.png') }}">
+                                <img src="{{ asset('assets/images/ic-lock-down.png') }}">
+                            </div>
+                            <div class="iri">
+                                <h5>Đổi mật khẩu</h5>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('changeEmail', Auth::user()) }}">
+                            <div class="irleft">
+                                <img src="{{ asset('assets/images/ic-lock-on.png') }}">
+                            </div>
+                            <div class="iri">
+                                <h5>Đổi email</h5>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                    <a href="{{ route('changePhone', Auth::user()) }}">
+                            <div class="irleft">
+                                <img src="{{ asset('assets/images/ic-lock-on.png') }}">
+                            </div>
+                            <div class="iri">
+                                <h5>Đổi số điện thoại</h5>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div class="iri">
-                <h5>Đổi mật khẩu</h5>
-            </div>
-            </a>
-            </li>
-            <li>
-                <a href="{{ route('changeEmail', Auth::user()) }}">
-                    <div class="irleft">
-                        <img src="{{ asset('assets/images/ic-lock-on.png') }}">
+            <div class="info-right">
+                <h4>Đổi số điện thoại</h4>
+                <div class="change-pass">
+                    @if (session('alert'))
+                    @if (session('alert') == 'success')
+                    <div class="alert alert-success mb-2" role="alert">
+                        Update success.
                     </div>
-                    <div class="iri">
-                        <h5>Đổi email</h5>
+                    @endif
+                    @endif
+                    @if($errors->any())
+                    <div class="alert alert-danger mb-2" role="alert">
+                        <strong>{{ $errors->first() }}</strong>
                     </div>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('changePhone', Auth::user()) }}">
-                    <div class="irleft">
-                        <img src="{{ asset('assets/images/ic-lock-on.png') }}">
-                    </div>
-                    <div class="iri">
-                        <h5>Đổi số điện thoại</h5>
-                    </div>
-                </a>
-            </li>
-            </ul>
-        </div>
-        <div class="info-right">
-            <h4>Đổi mật khẩu</h4>
-            <div class="change-pass">
-                @if (session('alert'))
-                @if (session('alert') == 'success')
-                <div class="alert alert-success mb-2" role="alert">
-                    Update success.
+                    @endif
+                    <form method="post" action="{{route('changePhone', $user)}}">
+                        @csrf
+                        {{ method_field('PATCH') }}
+                        <div class="form-group">
+                            <div class="input-lock">
+                                <input type="text" name="phone_old" class="form-control" placeholder="Nhập số điện thoại cũ"
+                                    value="{{ old('phone_old') }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-lock">
+                                <input type="text" name="phone" class="form-control" placeholder="Nhập số điện thoại mới"
+                                    value="{{ old('phone') }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-lock">
+                                <input type="email" name="email" class="form-control" placeholder="Nhập email"
+                                    value="{{ old('email') }}">
+                            </div>
+                        </div>                        
+                        <div class="form-group mt-4 mb-0">
+                            <button type="submit" class="kv-button text-uppercase">Cập nhật</button>
+                        </div>
+                    </form>
                 </div>
-                @endif
-                @endif
-                @if($errors->any())
-                <div class="alert alert-danger mb-2" role="alert">
-                    <strong>{{ $errors->first() }}</strong>
-                </div>
-                @endif
-                <form method="post" action="{{route('changePassword', $user)}}">
-                    @csrf
-                    {{ method_field('PATCH') }}
-                    <div class="form-group">
-                        <div class="input-lock">
-                            <input type="password" name="password" class="form-control" placeholder="Mật khẩu mới">
-                            <p class="color-blue">*(Ít nhất chứa 6 ký tư - khuyến nghị nên tránh những mật khẩu dễ đoán)
-                            </p>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-lock">
-                            <input type="password" name="password_confirmation" class="form-control"
-                                placeholder="Nhập lại mật khẩu mới">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-lock">
-                            <input type="email" name="email" class="form-control" placeholder="Nhập email"
-                                value="{{ old('email') }}">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-lock">
-                            <input type="text" name="phone" class="form-control" placeholder="Nhập số điện thoại"
-                                value="{{ old('phone') }}">
-                        </div>
-                    </div>
-                    <div class="form-group mt-4 mb-0">
-                        <button type="submit" class="kv-button text-uppercase">Cập nhật</button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
-</div>
 </div>
 @endsection

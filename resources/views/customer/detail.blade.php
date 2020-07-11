@@ -106,7 +106,7 @@
     <div class="list-news-archive">
         <h4 class="title-news"></h4>
         <div class="info-user">
-            <div class="info-left">
+        <div class="info-left">
                 <ul>
                     <li class="active">
                         <a href="#">
@@ -131,32 +131,32 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ route('changePassword', Auth::user()) }}">
                             <div class="irleft">
                                 <img src="{{ asset('assets/images/ic-lock-down.png') }}">
                             </div>
                             <div class="iri">
-                                <h5>Đổi mật khẩu cấp 1</h5>
+                                <h5>Đổi mật khẩu</h5>
                             </div>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ route('changeEmail', Auth::user()) }}">
                             <div class="irleft">
                                 <img src="{{ asset('assets/images/ic-lock-on.png') }}">
                             </div>
                             <div class="iri">
-                                <h5>Đổi mật khẩu cấp 2</h5>
+                                <h5>Đổi email</h5>
                             </div>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ route('changePhone', Auth::user()) }}">
                             <div class="irleft">
                                 <img src="{{ asset('assets/images/ic-lock-on.png') }}">
                             </div>
                             <div class="iri">
-                                <h5>Quên mật khẩu cấp 2</h5>
+                                <h5>Đổi số điện thoại</h5>
                             </div>
                         </a>
                     </li>

@@ -37,3 +37,7 @@ Route::get('play-game/{id}', 'PlayGameController@playGame');
 Route::get('account-info/{id}', ['as' => 'accountInfo', 'uses' => 'CustomerController@detail']);
 Route::get('change-password/{id}', ['as' => 'changePassword', 'uses' => 'CustomerController@changePassword']);
 Route::patch('change-password/{id}', ['as' => 'changePassword', 'uses' => 'CustomerController@ExeChangePassword']);
+Route::get('change-email/{id}', ['as' => 'changeEmail', 'uses' => 'CustomerController@changeEmail']);
+Route::patch('change-email/{id}', ['as' => 'changeEmail', 'uses' => 'CustomerController@ExeChangeEmail']);
+Route::get('change-phone/{id}', ['as' => 'changePhone', 'uses' => 'CustomerController@changePhone']);
+Route::patch('change-phone/{id}', ['as' => 'changePhone', 'uses' => 'CustomerController@ExeChangePhone']);
