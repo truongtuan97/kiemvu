@@ -41,3 +41,34 @@ Route::get('change-email/{id}', ['as' => 'changeEmail', 'uses' => 'CustomerContr
 Route::patch('change-email/{id}', ['as' => 'changeEmail', 'uses' => 'CustomerController@ExeChangeEmail']);
 Route::get('change-phone/{id}', ['as' => 'changePhone', 'uses' => 'CustomerController@changePhone']);
 Route::patch('change-phone/{id}', ['as' => 'changePhone', 'uses' => 'CustomerController@ExeChangePhone']);
+
+//Admin session
+route::get('/admin', 'AdminController@getLogin')->name('admin');
+route::post('/admin', 'AdminController@postLogin');
+
+Route::group(['middleware' => ['admin']], function () {
+//   Route::get('admin/users/{cAccName}/napcard',  ['as' => 'management.user.napcard', 'uses' => 'ManagementController@userNapcardEdit']);
+//   Route::patch('admin/users/{user}/napcard',  ['as' => 'management.user.napcard', 'uses' => 'ManagementController@userNapcardUpdate']);
+
+  Route::get('admin/users/{name}/show',  ['as' => 'management.user.show', 'uses' => 'ManagementController@userDetail']);
+  Route::get('admin/users/{name}/edit',  ['as' => 'management.user.edit', 'uses' => 'ManagementController@userEdit']);
+  Route::patch('admin/users/{user}/update',  ['as' => 'management.user.update', 'uses' => 'ManagementController@userUpdate']);
+  Route::get('admin/list_users', ['as' => 'users', 'uses' => 'ManagementController@listUser']);
+  Route::post('admin/list_users', ['as' => 'users', 'uses' => 'ManagementController@listUser']);
+
+//   Route::get('admin/chkms', ['as' => 'management.chkm.list', 'uses' => 'ManagementController@chkmList']);
+//   Route::get('admin/chkms/{chkm}/edit', ['as' => 'management.chkm.edit', 'uses' => 'ManagementController@chkmEdit']);
+//   Route::patch('admin/chkms/{chkm}/update', ['as' => 'management.chkm.update', 'uses' => 'ManagementController@chkmUpdate']);
+
+//   Route::get('admin/thongkenap', ['as' => 'management.thongkenap.list', 'uses' => 'ManagementController@thongKeNap']);
+//   Route::post('admin/thongkenap', ['as' => 'management.thongkenap.list', 'uses' => 'ManagementController@thongKeNap']);
+
+//   Route::get('admin/lognaptien', ['as' => 'management.lognaptien.list', 'uses' => 'ManagementController@logNapTien']);
+//   Route::post('admin/lognaptien', ['as' => 'management.lognaptien.list', 'uses' => 'ManagementController@logNapTien']);
+//   Route::get('admin/logquanlytaikhoan', ['as' => 'management.logquanlytaikhoan.list', 'uses' => 'ManagementController@logQuanLyTaiKhoan']);
+//   Route::post('admin/logquanlytaikhoan', ['as' => 'management.logquanlytaikhoan.list', 'uses' => 'ManagementController@logQuanLyTaiKhoan']);
+
+//   Route::get('admin/lichsuruttien', ['as' => 'management.lichsuruttien.list', 'uses' => 'ManagementController@lichsuruttien']);
+//   Route::post('admin/lichsuruttien', ['as' => 'management.lichsuruttien.list', 'uses' => 'ManagementController@lichsuruttien']);
+});
+//End admin session
