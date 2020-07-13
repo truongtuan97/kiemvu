@@ -42,6 +42,9 @@ Route::patch('change-email/{id}', ['as' => 'changeEmail', 'uses' => 'CustomerCon
 Route::get('change-phone/{id}', ['as' => 'changePhone', 'uses' => 'CustomerController@changePhone']);
 Route::patch('change-phone/{id}', ['as' => 'changePhone', 'uses' => 'CustomerController@ExeChangePhone']);
 
+Route::get('napcard/{name}/edit', ['as' => 'user.napcard.edit', 'uses' => 'CustomerController@napcard']);
+Route::post('napcard/{name}/update', ['as' => 'user.napcard.update', 'uses' => 'CustomerController@updateNapCard']);
+
 //Admin session
 route::get('/admin', 'AdminController@getLogin')->name('admin');
 route::post('/admin', 'AdminController@postLogin');

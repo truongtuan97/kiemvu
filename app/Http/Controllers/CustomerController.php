@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use BaoKimSDK\BaoKim;
+use App\CardHistory;
+use App\CardInfo;
+use App\CardType;
+use App\PromotionConfiguration;
+use Carbon\Carbon;
 
 class CustomerController extends Controller
 {
@@ -122,6 +129,100 @@ class CustomerController extends Controller
             $user->phone = $request->phone;
             $user->save();
             return redirect()->back()->with('alert', 'success');
+        }
+    }
+
+    public function napcard() {
+        $user = Auth::user();
+        $cardInfos = CardInfo::all();
+        $cardTypes = CardType::all();
+        return view('customer.napcard', compact(['user', 'cardInfos', 'cardTypes']));
+    }
+    
+    public function updateNapCard(Request $request) {
+
+        $validateResult = $this->validate($request, [
+            'cardType' => 'required',
+            'cardInfo' => 'required',
+        ]);        
+        $user = Auth::user();
+        $chkm = PromotionConfiguration::all()->first();
+        
+        $date = new \DateTime();
+        
+        $orderID = $user->name.'-'.$date->getTimestamp();
+        $cardAmount = $request->cardInfo;
+        
+        $payload['mrc_order_id'] = $orderID;
+        $payload['telco'] = $request->cardType;
+        $payload['amount'] = $cardAmount;
+        $payload['code'] = $request->pin;
+        $payload['serial'] = $request->serial;
+        $payload['webhooks'] = env("NAPCARD_WEB_HOOK_URL");
+        
+        BaoKim::setKey(env("BAOKIM_API_KEY"), env("BAOKIM_SECREY_KEY"));
+        $url_api = "https://api.kingcard.online/kingcard/api/v1/strike-card?jwt=".BaoKim::getKey();        
+        
+        //save to log
+        $ingame_amount = empty($chkm) ? ($cardAmount / 1000) : (($cardAmount / 1000) + (($cardAmount / 1000) * $chkm->khuyenmai));
+        CardHistory::create([
+            'username' => Auth::user()->name,
+            'orderId' => $orderID,
+            'card_type' => $request->cardType,
+            'card_amount' => $request->cardInfo,
+            'card_code' => $request->pin,
+            'card_serial' => $request->serial,
+            'status' => 1,
+            'ingame_amount' => $ingame_amount,
+            'created_at' => Carbon::Now(),
+            'updated_at' => Carbon::Now(),
+        ]);
+        
+        // create request with CURL
+        $ch = curl_init($url_api);
+
+        $options = array(
+            CURLOPT_RETURNTRANSFER => true,   // return web page
+            CURLOPT_HTTPHEADER     => array("Content-Type: application/json", "Accept: application/json"),  // don't return headers
+            CURLOPT_FOLLOWLOCATION => true,   // follow redirects
+            CURLOPT_MAXREDIRS      => 10,     // stop after 10 redirects
+            CURLOPT_ENCODING       => "",     // handle compressed            
+            CURLOPT_AUTOREFERER    => true,   // set referrer on redirect
+            CURLOPT_CONNECTTIMEOUT => 60,    // time-out on connect
+            CURLOPT_TIMEOUT        => 60,    // time-out on response
+            CURLOPT_POST           => true,                        
+            CURLOPT_SSL_VERIFYPEER => false,  // ignore SSL verify
+            CURLOPT_POSTFIELDS     => \json_encode($payload)
+        ); 
+            
+        curl_setopt_array($ch, $options);        
+        $output = curl_exec($ch);
+        curl_close($ch);
+        
+        $loop = 0;
+        $cardHistory = new \stdClass();
+        
+        while ($loop < 3) {
+            \sleep(env('SECOND_TIMEOUT'));
+            $cardHistory = CardHistory::where('orderID', $orderID)->first();
+            if ($cardHistory->success == 1) {
+                break;
+            }
+            $loop += 1;
+        }
+                
+        if ($cardHistory->success == 1) {
+            return redirect()->back()->with('alert', 'success');
+        } else {
+            if ($cardHistory->status == 1) {
+                return redirect()->back()->with('alert', 'status1');
+            }
+            if ($cardHistory->status == 3) {
+                return redirect()->back()->with('alert', 'status2');
+            }
+            if ($cardHistory->status == 3) {
+                return redirect()->back()->with('alert', 'status3');
+            }
         }
     }
 
