@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class DatabaseSeeder extends Seeder
 {
@@ -55,8 +56,8 @@ class DatabaseSeeder extends Seeder
 
         $data = [
             [
-                'ngay_bat_dau' => \Carbon::now(),
-                'ngay_ket_thuc' => \Carbon::now(),
+                'ngay_bat_dau' => Carbon::now(),
+                'ngay_ket_thuc' => Carbon::now(),
                 'khuyenmai' => 0,                
             ]
         ];
