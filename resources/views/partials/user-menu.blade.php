@@ -22,6 +22,18 @@
               </div>
           </a>
       </li>
+      @if (empty(Auth::user()->email))
+      <li>
+          <a href="{{ route('updateInfo', Auth::user()) }}">
+              <div class="irleft">
+                  <img src="{{ asset('assets/images/ic-lock-down.png') }}">
+              </div>
+              <div class="iri">
+                  <h5>Cập nhật thông tin</h5>
+              </div>
+          </a>
+      </li>
+      @endif
       <li>
           <a href="{{ route('changePassword', Auth::user()) }}">
               <div class="irleft">

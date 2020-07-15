@@ -41,6 +41,8 @@ Route::get('change-email/{id}', ['as' => 'changeEmail', 'uses' => 'CustomerContr
 Route::patch('change-email/{id}', ['as' => 'changeEmail', 'uses' => 'CustomerController@ExeChangeEmail']);
 Route::get('change-phone/{id}', ['as' => 'changePhone', 'uses' => 'CustomerController@changePhone']);
 Route::patch('change-phone/{id}', ['as' => 'changePhone', 'uses' => 'CustomerController@ExeChangePhone']);
+Route::get('update-info/{id}', ['as' => 'updateInfo', 'uses' => 'CustomerController@updateInfo']);
+Route::patch('update-info/{id}', ['as' => 'updateInfo', 'uses' => 'CustomerController@ExeUpdateInfo']);
 
 Route::get('napcard/{name}/edit', ['as' => 'user.napcard.edit', 'uses' => 'CustomerController@napcard']);
 Route::post('napcard/{name}/update', ['as' => 'user.napcard.update', 'uses' => 'CustomerController@updateNapCard']);
@@ -59,9 +61,9 @@ Route::group(['middleware' => ['admin']], function () {
   Route::get('admin/list_users', ['as' => 'users', 'uses' => 'ManagementController@listUser']);
   Route::post('admin/list_users', ['as' => 'users', 'uses' => 'ManagementController@listUser']);
 
-//   Route::get('admin/chkms', ['as' => 'management.chkm.list', 'uses' => 'ManagementController@chkmList']);
-//   Route::get('admin/chkms/{chkm}/edit', ['as' => 'management.chkm.edit', 'uses' => 'ManagementController@chkmEdit']);
-//   Route::patch('admin/chkms/{chkm}/update', ['as' => 'management.chkm.update', 'uses' => 'ManagementController@chkmUpdate']);
+  Route::get('admin/chkms', ['as' => 'management.chkm.list', 'uses' => 'ManagementController@chkmList']);
+  Route::get('admin/chkms/{chkm}/edit', ['as' => 'management.chkm.edit', 'uses' => 'ManagementController@chkmEdit']);
+  Route::patch('admin/chkms/{chkm}/update', ['as' => 'management.chkm.update', 'uses' => 'ManagementController@chkmUpdate']);
 
 //   Route::get('admin/thongkenap', ['as' => 'management.thongkenap.list', 'uses' => 'ManagementController@thongKeNap']);
 //   Route::post('admin/thongkenap', ['as' => 'management.thongkenap.list', 'uses' => 'ManagementController@thongKeNap']);

@@ -156,7 +156,10 @@
                         <li><a class="menu-item" href="{{ route('users') }}" data-i18n="Users List">Users List</a>
                         </li>
                     </ul>
-                </li>                
+                </li>
+                <li class=" nav-item">
+                    <a href="{{ route('management.chkm.list') }}"><i class="feather icon-user"></i><span class="menu-title" data-i18n="Users">Cấu hình khuyến mãi</span></a>
+                </li>
             </ul>
         </div>
     </div>

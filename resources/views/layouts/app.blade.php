@@ -141,7 +141,7 @@
                                         required placeholder="Nhập lại mật khẩu mới">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label>Email</label>
                                 <div class="input-lock input-email">
                                     <input id="email" type="email" name="email" value="{{ old('email') }}" 
@@ -162,7 +162,7 @@
                                         <strong></strong>
                                     </span>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group">                                
                                 <button type="submit" class="login-btn">{{ __('Đăng Ký') }}</button>
                             </div>

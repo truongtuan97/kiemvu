@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\User;
 use App\AccountInfoLog;
+use App\PromotionConfiguration;
+use App\ConfigKhuyenMaiValue;
 
 class ManagementController extends Controller
 {
@@ -85,5 +87,36 @@ class ManagementController extends Controller
         } catch (Exception $e) {
             return redirect()->back()->with('alert', 'failed');
         }        
+    }
+
+    public function chkmList() {
+        $chkms = PromotionConfiguration::all();
+        return view('admin.chkm.list', compact('chkms'));
+    }
+
+    public function chkmEdit($id) {
+        $chkm = PromotionConfiguration::where('id', $id)->first();
+        $configKhuyenMaiValues = ConfigKhuyenMaiValue::all();
+
+        return view('admin.chkm.edit', compact(['chkm', 'configKhuyenMaiValues']));
+    }
+
+    public function chkmUpdate(PromotionConfiguration $chkm) {
+        $this->validate(request(), [
+            'ngay_bat_dau' => ['required', 'date'],
+            'ngay_ket_thuc' => ['required', 'date'],
+            'khuyenmai' => ['required']
+        ]);
+        try {
+            $chkm->ngay_bat_dau = request('ngay_bat_dau');
+            $chkm->ngay_ket_thuc = request('ngay_ket_thuc');
+            $chkm->khuyenmai = request('khuyenmai');
+            $chkm->save();
+
+            return redirect()->back()->with('alert', 'success');
+        } catch (Exception $e) {
+            return redirect()->back()->with('alert', 'failed');
+        }
+
     }
 }
